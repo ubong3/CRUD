@@ -15,9 +15,6 @@ export class UserService {
      if(findEmail){
         throw new HttpException('user-email already been used', 400)
  }
-     if(finePhone){
-        throw new HttpException('user with the same number already exist',400 )
-    }
    const harshPassword = await bcrypt.hash(password, 12)
    
      const create = await this.userRepository.save({firstname, phone, lastname, email, password:harshPassword})
